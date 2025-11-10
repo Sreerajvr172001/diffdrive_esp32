@@ -1,0 +1,9 @@
+<library path="diffdrive_esp32">
+  <class name="diffdrive_esp32/DiffDriveEsp32Hardware"
+    type="diffdrive_esp32::DiffDriveEsp32Hardware"
+         base_class_type="hardware_interface::SystemInterface">
+    <description>
+      ros2_control Hardware Interface for 2 wheel differential drive robot
+    </description>
+  </class>
+</library>
