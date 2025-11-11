@@ -1,4 +1,3 @@
-build/
-install/
+diffdrive_esp32/
 log/
 .vscode/
