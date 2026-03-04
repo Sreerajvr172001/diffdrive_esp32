@@ -43,7 +43,7 @@ struct Config
 {
   std::string left_wheel_name = "";
   std::string right_wheel_name = "";
-  float loop_rate = 0.0;
+  //float loop_rate = 0.0; //no need of loop rate anymore as we are sending velocity in ticks/sec instead of ticks/loop
   std::string device = "";
   int baud_rate = 0;
   int timeout_ms = 0;

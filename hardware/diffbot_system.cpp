@@ -38,7 +38,7 @@ hardware_interface::CallbackReturn DiffDriveEsp32Hardware::on_init(
 
   cfg_.left_wheel_name = info_.hardware_parameters["left_wheel_name"];
   cfg_.right_wheel_name = info_.hardware_parameters["right_wheel_name"];
-  cfg_.loop_rate = std::stof(info_.hardware_parameters["loop_rate"]);
+  //cfg_.loop_rate = std::stof(info_.hardware_parameters["loop_rate"]); // No need of loop_rate as we are not sending velocity as ticks/loop
   cfg_.device = info_.hardware_parameters["device"];
   cfg_.baud_rate = std::stoi(info_.hardware_parameters["baud_rate"]);
   cfg_.timeout_ms = std::stoi(info_.hardware_parameters["timeout_ms"]);
