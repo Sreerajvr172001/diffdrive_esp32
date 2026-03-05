@@ -93,7 +93,7 @@ public:
     std::string response = send_msg("\r");
   }
 
-  void read_encoder_values(int &val_1, int &val_2)
+  void read_encoder_values(int64_t &val_1, int64_t &val_2)
   {
     std::string response = send_msg("e\r");
 
@@ -102,8 +102,8 @@ public:
     std::string token_1 = response.substr(0, del_pos);
     std::string token_2 = response.substr(del_pos + delimiter.length());
 
-    val_1 = std::atoi(token_1.c_str());
-    val_2 = std::atoi(token_2.c_str());
+    val_1 = std::atoll(token_1.c_str());
+    val_2 = std::atoll(token_2.c_str());
     std::cout<<"Encoder Counts: "<<val_1<<" "<<val_2<<std::endl;
   }
   void set_motor_values(int val_1, int val_2)
