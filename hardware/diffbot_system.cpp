@@ -43,13 +43,13 @@ hardware_interface::CallbackReturn DiffDriveEsp32Hardware::on_init(
   cfg_.baud_rate = std::stoi(info_.hardware_parameters["baud_rate"]);
   cfg_.timeout_ms = std::stoi(info_.hardware_parameters["timeout_ms"]);
   cfg_.enc_counts_per_rev = std::stoi(info_.hardware_parameters["enc_counts_per_rev"]);
-  cfg_.MAX_TICKS_PER_SEC = std::stoi(info_.hardware_parameters["MAX_TICKS_PER_SEC"]);
+  cfg_.MAX_TICKS_PER_SEC = std::stof(info_.hardware_parameters["MAX_TICKS_PER_SEC"]);
   if (info_.hardware_parameters.count("pid_p") > 0)
   {
-    cfg_.pid_p = std::stoi(info_.hardware_parameters["pid_p"]);
-    cfg_.pid_d = std::stoi(info_.hardware_parameters["pid_d"]);
-    cfg_.pid_i = std::stoi(info_.hardware_parameters["pid_i"]);
-    cfg_.pid_o = std::stoi(info_.hardware_parameters["pid_o"]);
+    cfg_.pid_p = std::stof(info_.hardware_parameters["pid_p"]);
+    cfg_.pid_d = std::stof(info_.hardware_parameters["pid_d"]);
+    cfg_.pid_i = std::stof(info_.hardware_parameters["pid_i"]);
+    cfg_.pid_o = std::stof(info_.hardware_parameters["pid_o"]);
   }
   else
   {
