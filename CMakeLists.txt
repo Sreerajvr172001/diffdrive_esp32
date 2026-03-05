@@ -1,6 +1,9 @@
 cmake_minimum_required(VERSION 3.16)
 project(diffdrive_esp32 LANGUAGES CXX)
 
+add_definitions(-DBOOST_BIND_GLOBAL_PLACEHOLDERS)
+
+
 if(CMAKE_CXX_COMPILER_ID MATCHES "(GNU|Clang)")
   add_compile_options(-Wall -Wextra)
 endif()
