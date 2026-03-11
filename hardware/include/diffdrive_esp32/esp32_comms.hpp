@@ -124,11 +124,30 @@ public:
 
       std::string token_2 = response.substr(del_pos + delimiter.length());
 
-    val_1 = std::atoll(token_1.c_str());
-    val_2 = std::atoll(token_2.c_str());
-    std::cout<<"Encoder Counts: "<<val_1<<" "<<val_2<<std::endl;
+      val_1 = std::atoll(token_1.c_str());
+      val_2 = std::atoll(token_2.c_str());
+      std::cout<<"Encoder Counts: "<<val_1<<" "<<val_2<<std::endl;
+
+    }
+
+    catch (const std::exception& e) 
+    {
+      // Manual throttle: only print once every 50 calls (~once per second at 50Hz)
+      static int error_count = 0;
+      if (error_count++ % 50 == 0) 
+      {
+          std::cerr << "[Comms Error] Parsing failed: " << e.what() << " | Raw Response: " << response << std::endl;
+      }
+      return; 
+    }
+    catch (...) 
+    {
+      std::cerr << "[Comms Error] Unknown critical failure in parsing." << std::endl;
+      return;
+    }
   }
-  void set_motor_values(int val_1, int val_2)
+
+  void set_motor_values(float val_1, float val_2)
   {
     std::stringstream ss;
     ss << "m " << val_1 << " " << val_2 << "\r";
