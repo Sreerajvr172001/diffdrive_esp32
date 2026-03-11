@@ -21,12 +21,12 @@
         <param name="pid_i_r">0</param>
         <param name="pid_d_r">0</param>
       </hardware>
-      <joint name="${prefix}left_wheel_joint">
+      <joint name="left_wheel_joint">
         <command_interface name="velocity"/>
         <state_interface name="position"/>
         <state_interface name="velocity"/>
       </joint>
-      <joint name="${prefix}right_wheel_joint">
+      <joint name="right_wheel_joint">
         <command_interface name="velocity"/>
         <state_interface name="position"/>
         <state_interface name="velocity"/>
