@@ -66,13 +66,13 @@ public:
      try
     {
         serial_conn_.ReadLine(response, '\n', timeout_ms_);
-        std::cout<<"Received response: "<<std::endl;
+        std::cout<<"Received response: "<<response<<std::endl;
     }
     catch (const LibSerial::ReadTimeout&)
     {
 
         std::cerr << "ReadByte() timed out, using partial data" << std::endl;
-        std::cerr<<"Partial data is: "<<response;
+        std::cerr<<"Partial data is: "<<response<<std::endl;
     }
      
 
@@ -80,7 +80,7 @@ public:
     {
       std::string display_msg_to_send = msg_to_send;
       display_msg_to_send.erase(std::remove(display_msg_to_send.begin(), display_msg_to_send.end(), '\r'), display_msg_to_send.end());
-      std::cout<<"Sent: "<<display_msg_to_send<<"  Recv: " << response;
+      std::cout<<"Sent: "<<display_msg_to_send<<"  Recv: " << response<< std::endl;
     }
 
     return response;
