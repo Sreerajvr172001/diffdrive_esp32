@@ -14,10 +14,12 @@
         <param name="timeout_ms">1</param>
         <param name="enc_counts_per_rev">1056</param>
         <param name="MAX_TICKS_PER_SEC">2000</param>
-        <param name="pid_p">0</param>
-        <param name="pid_d">0</param>
-        <param name="pid_i">0</param>
-        <param name="pid_o">0</param>
+        <param name="pid_p_l">0</param>
+        <param name="pid_i_l">0</param>
+        <param name="pid_d_l">0</param>
+        <param name="pid_p_r">0</param>
+        <param name="pid_i_r">0</param>
+        <param name="pid_d_r">0</param>
       </hardware>
       <joint name="${prefix}left_wheel_joint">
         <command_interface name="velocity"/>

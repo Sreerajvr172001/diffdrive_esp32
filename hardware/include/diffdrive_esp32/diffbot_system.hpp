@@ -50,10 +50,12 @@ struct Config
   int enc_counts_per_rev = 0;
   int MAX_TICKS_PER_SEC = 0;
   // PID parameters
-  float pid_p = 0;
-  float pid_d = 0;
-  float pid_i = 0;
-  float pid_o = 0;
+  float pid_p_l = 0;
+  float pid_i_l = 0;
+  float pid_d_l = 0;
+  float pid_p_r = 0;
+  float pid_i_r = 0;    
+  float pid_d_r = 0;
 };
 
 

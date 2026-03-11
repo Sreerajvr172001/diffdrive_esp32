@@ -44,18 +44,28 @@ hardware_interface::CallbackReturn DiffDriveEsp32Hardware::on_init(
   cfg_.timeout_ms = std::stoi(info_.hardware_parameters["timeout_ms"]);
   cfg_.enc_counts_per_rev = std::stoi(info_.hardware_parameters["enc_counts_per_rev"]);
   cfg_.MAX_TICKS_PER_SEC = std::stof(info_.hardware_parameters["MAX_TICKS_PER_SEC"]);
-  if (info_.hardware_parameters.count("pid_p") > 0)
+
+  if (info_.hardware_parameters.count("pid_p_l") > 0)
   {
-    cfg_.pid_p = std::stof(info_.hardware_parameters["pid_p"]);
-    cfg_.pid_d = std::stof(info_.hardware_parameters["pid_d"]);
-    cfg_.pid_i = std::stof(info_.hardware_parameters["pid_i"]);
-    cfg_.pid_o = std::stof(info_.hardware_parameters["pid_o"]);
+    cfg_.pid_p_l = std::stof(info_.hardware_parameters["pid_p_l"]);
+    cfg_.pid_i_l = std::stof(info_.hardware_parameters["pid_i_l"]);
+    cfg_.pid_d_l = std::stof(info_.hardware_parameters["pid_d_l"]);
   }
   else
   {
-    RCLCPP_INFO(rclcpp::get_logger("DiffDriveEsp32Hardware"), "PID values not supplied, using defaults.");
+    RCLCPP_INFO(rclcpp::get_logger("DiffDriveEsp32Hardware"), "PID values not supplied for left motor, using defaults.");
   }
   
+  if (info_.hardware_parameters.count("pid_p_r") > 0)
+  {
+    cfg_.pid_p_r = std::stof(info_.hardware_parameters["pid_p_r"]);
+    cfg_.pid_i_r = std::stof(info_.hardware_parameters["pid_i_r"]);
+    cfg_.pid_d_r = std::stof(info_.hardware_parameters["pid_d_r"]);
+  }
+  else
+  {
+    RCLCPP_INFO(rclcpp::get_logger("DiffDriveEsp32Hardware"), "PID values not supplied for right motor, using defaults.");
+  }
 
   wheel_l_.setup(cfg_.left_wheel_name, cfg_.enc_counts_per_rev);
   wheel_r_.setup(cfg_.right_wheel_name, cfg_.enc_counts_per_rev);
@@ -179,9 +189,13 @@ hardware_interface::CallbackReturn DiffDriveEsp32Hardware::on_activate(
   {
     return hardware_interface::CallbackReturn::ERROR;
   }
-  if (cfg_.pid_p > 0)
+  if (cfg_.pid_p_l > 0)
   {
-    comms_.set_pid_values(cfg_.pid_p,cfg_.pid_d,cfg_.pid_i,cfg_.pid_o);
+    comms_.set_pid_values_l(cfg_.pid_p_l,cfg_.pid_i_l,cfg_.pid_d_l);
+  }
+  if (cfg_.pid_p_r > 0)
+  {
+    comms_.set_pid_values_r(cfg_.pid_p_r,cfg_.pid_i_r,cfg_.pid_d_r);
   }
   RCLCPP_INFO(rclcpp::get_logger("DiffDriveEsp32Hardware"), "Successfully activated!");
 
