@@ -99,8 +99,30 @@ public:
 
     std::string delimiter = " ";
     size_t del_pos = response.find(delimiter);
-    std::string token_1 = response.substr(0, del_pos);
-    std::string token_2 = response.substr(del_pos + delimiter.length());
+
+    if(del_pos == std::string::npos)
+    {
+      std::cerr << "Invalid encoder response : " << response << std::endl;
+      return;
+    }
+
+    try
+    {  
+      std::string token_1 = response.substr(0, del_pos);
+
+      if(token_1.empty())
+      {
+        std::cerr << "Invalid encoder response, first token is empty: " << response << std::endl;
+        return;
+      }
+
+      if (response.length() <= (del_pos + delimiter.length())) 
+      {
+        std::cerr << "Invalid encoder response, second token is missing: " << response << std::endl;
+        return;
+      }
+
+      std::string token_2 = response.substr(del_pos + delimiter.length());
 
     val_1 = std::atoll(token_1.c_str());
     val_2 = std::atoll(token_2.c_str());
