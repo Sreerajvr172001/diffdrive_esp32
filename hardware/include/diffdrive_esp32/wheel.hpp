@@ -7,7 +7,7 @@
 
 class Wheel
 {
-    public:
+  public:
 
     std::string name = "";
     int64_t enc = 0;
