@@ -225,7 +225,13 @@ hardware_interface::return_type DiffDriveEsp32Hardware::read(
 
   double delta_seconds = period.seconds();
 
-  double pos_prev = wheel_l_.pos;
+  if(delta_seconds <= 0.0001)
+  {
+    RCLCPP_WARN(rclcpp::get_logger("DiffDriveEsp32Hardware"), "delta_seconds = %f seconds. Skipping velocity calculation to avoid division by zero.", delta_seconds);
+    return hardware_interface::return_type::OK;
+  }
+
+  float pos_prev = wheel_l_.pos;
   wheel_l_.pos = wheel_l_.calc_enc_angle();
   wheel_l_.vel = (wheel_l_.pos - pos_prev) / delta_seconds;
 
