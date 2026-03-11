@@ -244,9 +244,10 @@ hardware_interface::return_type diffdrive_esp32 ::DiffDriveEsp32Hardware::write(
 
   //int motor_l_counts_per_loop = wheel_l_.cmd / wheel_l_.rads_per_count / cfg_.loop_rate;
   //int motor_r_counts_per_loop = wheel_r_.cmd / wheel_r_.rads_per_count / cfg_.loop_rate;
-  int motor_l_counts_per_sec = wheel_l_.cmd / wheel_l_.rads_per_count;
-  int motor_r_counts_per_sec = wheel_r_.cmd / wheel_r_.rads_per_count;
-  int max_ticks = std::max(std::abs(motor_l_counts_per_sec), std::abs(motor_r_counts_per_sec));
+  float motor_l_counts_per_sec = wheel_l_.cmd / wheel_l_.rads_per_count;
+  float motor_r_counts_per_sec = wheel_r_.cmd / wheel_r_.rads_per_count;
+
+  float max_ticks = std::max(std::abs(motor_l_counts_per_sec), std::abs(motor_r_counts_per_sec));
   if(max_ticks > cfg_.MAX_TICKS_PER_SEC)
   {
     float scale = (float)cfg_.MAX_TICKS_PER_SEC / (float)max_ticks;
