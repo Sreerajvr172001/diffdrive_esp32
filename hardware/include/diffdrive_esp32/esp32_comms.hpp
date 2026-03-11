@@ -154,10 +154,17 @@ public:
     send_msg(ss.str());
   }
 
-  void set_pid_values(float k_p, float k_d, float k_i, float k_o)
+  void set_pid_values_l(float k_p, float k_i, float k_d)
   {
     std::stringstream ss;
-    ss << "u " << k_p << ":" << k_d << ":" << k_i << ":" << k_o << "\r";
+    ss << "l " << k_p << " " << k_i << " " << k_d << "\r";
+    send_msg(ss.str());
+  }
+
+  void set_pid_values_r(float k_p, float k_i, float k_d)
+  {
+    std::stringstream ss;
+    ss << "n " << k_p << " " << k_i << " " << k_d << "\r";
     send_msg(ss.str());
   }
 
