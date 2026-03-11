@@ -269,5 +269,4 @@ hardware_interface::return_type diffdrive_esp32 ::DiffDriveEsp32Hardware::write(
 }  // namespace diffdrive_esp32
 
 #include "pluginlib/class_list_macros.hpp"
-PLUGINLIB_EXPORT_CLASS(
-  diffdrive_esp32::DiffDriveEsp32Hardware, hardware_interface::SystemInterface)
+PLUGINLIB_EXPORT_CLASS(diffdrive_esp32::DiffDriveEsp32Hardware, hardware_interface::SystemInterface)
