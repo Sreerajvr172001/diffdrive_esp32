@@ -103,6 +103,6 @@ private:
   Wheel wheel_r_;
 };
 
-}  // namespace DIFFDRIVE_ESP32
+}  // namespace diffdrive_esp32
 
 #endif  // DIFFDRIVE_ESP32__DIFFBOT_SYSTEM_HPP_
