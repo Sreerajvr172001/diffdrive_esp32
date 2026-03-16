@@ -11,7 +11,7 @@
         <!-- <param name="loop_rate">50</param> --> <!-- we are using ticks/sec instead of ticks/loop, thus no need of loop_rate here -->
         <param name="device">/dev/serial0</param>
         <param name="baud_rate">115200</param>
-        <param name="timeout_ms">20</param>
+        <param name="timeout_ms">100</param>
         <param name="enc_counts_per_rev">1056</param>
         <param name="MAX_TICKS_PER_SEC">2000</param>
         <param name="pid_p_l">0</param>
