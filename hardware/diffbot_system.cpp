@@ -233,7 +233,7 @@ hardware_interface::return_type DiffDriveEsp32Hardware::read(
     return hardware_interface::return_type::OK;
   }
 
-  float pos_prev = wheel_l_.pos;
+  double pos_prev = wheel_l_.pos;
   wheel_l_.pos = wheel_l_.calc_enc_angle();
   wheel_l_.vel = (wheel_l_.pos - pos_prev) / delta_seconds;
 
