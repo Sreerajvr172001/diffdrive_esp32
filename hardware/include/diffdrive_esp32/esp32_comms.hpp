@@ -123,6 +123,7 @@ public:
       }
 
       std::string token_2 = response.substr(del_pos + delimiter.length());
+      token_2.erase(std::remove(token_2.begin(), token_2.end(), '\r'), token_2.end());
 
       val_1 = std::atoll(token_1.c_str());
       val_2 = std::atoll(token_2.c_str());
