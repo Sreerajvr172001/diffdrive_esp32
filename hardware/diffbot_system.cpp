@@ -52,6 +52,7 @@ hardware_interface::CallbackReturn DiffDriveEsp32Hardware::on_init(
     cfg_.pid_p_l = std::stof(info_.hardware_parameters["pid_p_l"]);
     cfg_.pid_i_l = std::stof(info_.hardware_parameters["pid_i_l"]);
     cfg_.pid_d_l = std::stof(info_.hardware_parameters["pid_d_l"]);
+    RCLCPP_INFO(rclcpp::get_logger("DiffDriveEsp32Hardware"), "PID values supplied for left motor, not using defaults.");
   }
   else
   {
@@ -63,6 +64,7 @@ hardware_interface::CallbackReturn DiffDriveEsp32Hardware::on_init(
     cfg_.pid_p_r = std::stof(info_.hardware_parameters["pid_p_r"]);
     cfg_.pid_i_r = std::stof(info_.hardware_parameters["pid_i_r"]);
     cfg_.pid_d_r = std::stof(info_.hardware_parameters["pid_d_r"]);
+    RCLCPP_INFO(rclcpp::get_logger("DiffDriveEsp32Hardware"), "PID values supplied for right motor, not using defaults.");
   }
   else
   {
