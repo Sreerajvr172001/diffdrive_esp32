@@ -68,6 +68,9 @@ ESP32 Firmware  (esp32_ws)
 | Wheel radius | 32.5 mm |
 | Wheel separation | 100 mm |
 
+### MK1 Hardware
+![DiffBot MK1](assets/mk1_hardware.jpeg)
+
 ---
 
 ## Dependencies
