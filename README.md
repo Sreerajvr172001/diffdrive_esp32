@@ -69,7 +69,7 @@ ESP32 Firmware  (esp32_ws)
 | Wheel separation | 100 mm |
 
 ### MK1 Hardware
-![DiffBot MK1](assets/mk1_hardware.jpeg)
+![DiffBot MK1](assets/mk1_hardware image.jpg)
 
 ---
 
