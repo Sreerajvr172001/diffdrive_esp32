@@ -1,3 +1,4 @@
-diffdrive_esp32/
+# Ignore the following files and directories
 log/
 .vscode/
+build/
