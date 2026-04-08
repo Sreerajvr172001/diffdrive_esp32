@@ -23,7 +23,7 @@ def generate_launch_description():
         [
         PathJoinSubstitution([FindExecutable(name="xacro")]),
         " ",
-        PathJoinSubstitution([FindPackageShare("diffdrive_esp32"), "description", "urdf", "diffbot_description.urdf.xacro"]),
+        PathJoinSubstitution([FindPackageShare("diffdrive_esp32"), "urdf", "diffbot_description.urdf.xacro"]),
         " prefix:=",
         LaunchConfiguration("prefix")
         ]
@@ -34,7 +34,7 @@ def generate_launch_description():
 
     # Path to the controller configuration file
     robot_controllers = PathJoinSubstitution(
-        [FindPackageShare("diffdrive_esp32"), "bringup", "config", "diffbot_controllers.yaml"]
+        [FindPackageShare("diffdrive_esp32"), "config", "diffbot_controllers.yaml"]
     )
 
     # Launch Gazebo with an empty world
