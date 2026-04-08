@@ -1,0 +1,20 @@
+<?xml version="1.0"?>
+<robot xmlns:xacro="http://www.ros.org/wiki/xacro">
+    <xacro:arg name="prefix" default="" />
+
+    <!-- Import Robot Geometry - same as real hardware -->
+    <xacro:include filename="$(find diffdrive_esp32)/description/urdf/diffbot_description.urdf.xacro" />
+
+    <!-- Import Colors - same as real hardware -->
+    <xacro:include filename="$(find diffdrive_esp32)/description/urdf/diffbot.materials.xacro" />
+
+    <!-- Import Simulation-Specific ros2_control configuration -->
+    <xacro:include filename="$(find diffdrive_esp32)/description/ros2_control/diffbot.ros2_control.sim.xacro" />
+
+    <!-- Import Gazebo plugins - loads .so file and LIDAR Sensor -->
+    <xacro:include filename="$(find diffdrive_esp32)/description/urdf/diffbot_description.gazebo.urdf.xacro" />
+
+    <!-- Instantiate the diffbot macro -->
+    <xacro:diffbot prefix="$(arg prefix)" />
+
+</robot>
