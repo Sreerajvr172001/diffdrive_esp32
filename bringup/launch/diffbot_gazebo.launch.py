@@ -23,7 +23,7 @@ def generate_launch_description():
         [
         PathJoinSubstitution([FindExecutable(name="xacro")]),
         " ",
-        PathJoinSubstitution([FindPackageShare("diffdrive_esp32"), "urdf", "diffbot_description.urdf.xacro"]),
+        PathJoinSubstitution([FindPackageShare("diffdrive_esp32"), "urdf", "diffbot_sim.xacro"]),
         " prefix:=",
         LaunchConfiguration("prefix")
         ]
