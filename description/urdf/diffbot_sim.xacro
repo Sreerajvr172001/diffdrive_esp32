@@ -12,7 +12,7 @@
     <xacro:include filename="$(find diffdrive_esp32)/description/ros2_control/diffbot.ros2_control.sim.xacro" />
 
     <!-- Import Gazebo plugins - loads .so file and LIDAR Sensor -->
-    <xacro:include filename="$(find diffdrive_esp32)/description/urdf/diffbot_description.gazebo.urdf.xacro" />
+    <xacro:include filename="$(find diffdrive_esp32)/description/urdf/diffbot_sensors_and_control.gazebo.xacro" />
 
     <!-- Instantiate the diffbot macro -->
     <xacro:diffbot prefix="$(arg prefix)" />
