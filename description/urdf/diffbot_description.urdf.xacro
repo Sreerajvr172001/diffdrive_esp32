@@ -20,14 +20,14 @@
   <!-- Base Link -->
   <link name="${prefix}base_link">
     <collision>
-      <origin xyz="${wheel_radius} 0 ${base_height/2}" rpy="0 0 0"/>
+      <origin xyz="0 0 ${base_height/2}" rpy="0 0 0"/>
       <geometry>
         <box size="${base_length} ${base_width} ${base_height}"/>
       </geometry>
     </collision>
 
     <visual>
-      <origin xyz="${wheel_radius} 0 ${base_height/2}" rpy="0 0 0"/>
+      <origin xyz="0 0 ${base_height/2}" rpy="0 0 0"/>
       <geometry>
         <box size="${base_length} ${base_width} ${base_height}"/>
       </geometry>
@@ -35,7 +35,7 @@
     </visual>
 
     <inertial>
-      <origin xyz="0 0 0" rpy="0 0 0"/>
+      <origin xyz="0 0 ${base_height/2}" rpy="0 0 0"/>
       <mass value="${base_mass}"/>
       <inertia
         ixx="${base_mass / 12.0 * (base_width*base_width + base_height*base_height)}" ixy="0.0" ixz="0.0"
@@ -120,7 +120,7 @@
   <joint name="${prefix}caster_frontal_wheel_joint" type="fixed">
     <parent link="${prefix}base_link"/>
     <child link="${prefix}caster_frontal_wheel"/>
-    <origin xyz="${base_length/2 + wheel_radius - caster_wheel_radius} 0 ${z_offset}" rpy="0 0 0"/>
+    <origin xyz="${base_length/2} 0 ${z_offset}" rpy="0 0 0"/>
   </joint>
 
   <!-- caster frontal wheel Link -->
