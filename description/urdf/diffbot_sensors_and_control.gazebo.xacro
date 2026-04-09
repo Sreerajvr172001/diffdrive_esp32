@@ -40,4 +40,24 @@
         </sensor>
     </gazebo>
 
+    <!-- Wheel friction - needs grip to drive properly -->
+    <gazebo reference="left_wheel">
+        <mu1>1.0</mu1>
+        <mu2>1.0</mu2>
+        <material>Gazebo/Black</material>
+    </gazebo>
+
+    <gazebo reference="right_wheel">
+        <mu1>1.0</mu1>
+        <mu2>1.0</mu2>
+        <material>Gazebo/Black</material>
+    </gazebo>
+
+    <!-- Caster must have zero friction or it fights the drive wheels -->
+    <gazebo reference="caster_frontal_wheel">
+        <mu1>0.0</mu1>
+        <mu2>0.0</mu2>
+        <material>Gazebo/White</material>
+    </gazebo>
+
 </robot>
