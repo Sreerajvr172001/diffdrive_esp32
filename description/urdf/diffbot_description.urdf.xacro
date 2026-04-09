@@ -14,7 +14,7 @@
   <xacro:property name="wheel_len" value="0.03" />
   <xacro:property name="wheel_radius" value="0.0325" />
   <xacro:property name="caster_wheel_mass" value="0.1" /> <!-- arbitrary value for caster wheel mass -->
-  <xacro:property name="caster_wheel_radius" value="0.01625" />
+  <xacro:property name="caster_wheel_radius" value="0.0325" />
   <xacro:property name="z_offset" value="-${base_height/2}" /> <!-- Space btw top of beam and the each joint -->
 
   <!-- Base Link -->
@@ -154,7 +154,7 @@
   <joint name="${prefix}laser_joint" type="fixed">
     <parent link="${prefix}base_link"/>
     <child link="${prefix}laser_frame"/>
-    <origin xyz="0.1 0 0.08" rpy="0 0 0"/>
+    <origin xyz="0.1 0 ${base_height + 0.02}" rpy="0 0 0"/>
   </joint>
 
   <link name="${prefix}laser_frame">
